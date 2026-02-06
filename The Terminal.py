@@ -57,7 +57,7 @@ def choice(text, color, box):
             write(f"\033[30D({x}) {text[x - 1]}".ljust(31), color, "", False, True, False)
             x += 1
             write(f"({x}) {text[x - 1]}".ljust(26), "black", color if color != "" else "white", True, False, False)
-            time.sleep(0.2)
+            time.sleep(0.2)#sqdqs
         elif keyboard.is_pressed("enter"):
             if x in box:
                 write(f"{'\033[30D>>> '.ljust(31)}\033[22D", "black", color if color != "" else "white", True, False, False)
