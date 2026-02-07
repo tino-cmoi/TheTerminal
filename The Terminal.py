@@ -190,7 +190,7 @@ def quiz_biology(x):
             random.shuffle(list)
             mistakes = 0
             for i in range(22):
-                write(f"({i + 1}) {list[i][question]} -> ", "" , "", False, False, True)
+                write(f"({i + 1}) {list[i][question]} -> ", "" , "", False, True if question == "structure" else False, False if question == "structure" else True)
                 u_answer = ""
                 while True:
                     key = keyboard.read_key()
@@ -203,15 +203,15 @@ def quiz_biology(x):
                         u_answer = u_answer[:-1]
                         write("\033[1D \033[1D", "", "", True, False, False)
                     elif key == "enter" and keyboard.is_pressed(key): # submitting answer
-                        if u_answer == list[i][answer]:
+                        if u_answer.lower() == list[i][answer].lower():
                             c = "green"
                         else:
                             c = "red"
                             mistakes += 1
-                        for i in range(3): # flickering
-                                write(f"\033[{len(u_answer)}D{u_answer}", "black", "", True, False, False)
+                        for j in range(3): # flickering
+                                write(f"\033[{len(u_answer)}D{list[i][answer] if c == "green" else u_answer}", "black", "", True, False, False)
                                 time.sleep(0.15)
-                                write(f"\033[{len(u_answer)}D{u_answer}", c, "", True, False, False)
+                                write(f"\033[{len(u_answer)}D{list[i][answer] if c == "green" else u_answer}", c, "", True, False, False)
                                 time.sleep(0.15)
                         spc()
                         break
@@ -221,7 +221,9 @@ def quiz_biology(x):
             elif mistakes <= 5: comment = "Well done !"
             elif mistakes <= 10: comment = "Good."
             elif mistakes <= 15: comment = "Meh."
-            write(f"{comment} You did {mistakes} mistakes.")
+            write(f"{comment} You did {mistakes} mistake" + "." if mistakes == 1 else "s.", "", "", False, True, True)
+            spc()
+            quiz_biology(1) if choice(["Again", "Back"], "", []) == 1 else quiz_biology(0)
         elif y == 2: quiz_biology(0)
     elif x == 2: quiz(0)
 
