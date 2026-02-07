@@ -8,6 +8,7 @@ colors = {
 
 # ====== DATA ============================================================================================================================================================
 
+nucleotids = []
 am_ac = [
     {"name" : "Alanine",        "3 letter code" : "Ala",    "letter" : "A",     "codons" : ["GCU", "GCC", "GCA", "GCG"],                    "polarity" : "Nonpolar"},
     {"name" : "Arginine",       "3 letter code" : "Arg",    "letter" : "R",     "codons" : ["CGU", "CGC", "CGA", "CGG", "AGA", "AGG"],      "polarity" : "Basic"},
@@ -31,6 +32,23 @@ am_ac = [
     {"name" : "Tryptophan",     "3 letter code" : "Trp",    "letter" : "W",     "codons" : ["UGG"],                                         "polarity" : "Nonpolar"},
     {"name" : "Tyrosine",       "3 letter code" : "Tyr",    "letter" : "Y",     "codons" : ["UAU", "UAC"],                                  "polarity" : "Neutral"},
     {"name" : "Valine",         "3 letter code" : "Val",    "letter" : "V",     "codons" : ["GUU", "GUC", "GUA", "GUG"],                    "polarity" : "Nonpolar"},
+]
+aldoses = [
+    {"name" : "Glyceraldehyde",  "type" : "Triose",    "memo" : "None",      "structure" : "CH₂OH\n|\n"},
+    {"name" : "Erythrose",       "type" : "Tetrose",   "memo" : "None",      "structure" : ""},
+    {"name" : "Threose",         "type" : "Tetrose",   "memo" : "None",      "structure" : ""},
+    {"name" : "Ribose",          "type" : "Pentose",   "memo" : "None",      "structure" : ""},
+    {"name" : "Arabinose",       "type" : "Pentose",   "memo" : "None",      "structure" : ""},
+    {"name" : "Xylose",          "type" : "Pentose",   "memo" : "None",      "structure" : ""},
+    {"name" : "Lyxose",          "type" : "Pentose",   "memo" : "None",      "structure" : ""},
+    {"name" : "Allose",          "type" : "Hexose",    "memo" : "Punch",     "structure" : ""},
+    {"name" : "Altrose",         "type" : "Hexose",    "memo" : "There !",   "structure" : ""},
+    {"name" : "Glucose",         "type" : "Hexose",    "memo" : "F*ck you",  "structure" : ""},
+    {"name" : "Mannose",         "type" : "Hexose",    "memo" : "Gun",       "structure" : ""},
+    {"name" : "Gulose",          "type" : "Hexose",    "memo" : "None",      "structure" : ""},
+    {"name" : "Idose",           "type" : "Hexose",    "memo" : "None",      "structure" : ""},
+    {"name" : "Galactose",       "type" : "Hexose",    "memo" : "Freaky",    "structure" : ""},
+    {"name" : "Talose",          "type" : "Hexose",    "memo" : "Tea time",  "structure" : ""}
 ]
 
 # ====== FUNCTIONS =======================================================================================================================================================
@@ -93,13 +111,19 @@ def choice(text, color, box):
                         write("\033[1D \033[1D", "black", color if color != "" else "white", True, False, False)
                     elif key == "enter" and keyboard.is_pressed(key): #searching
                         if x == 1: # search biology
-                            found = []
+                            found = None
                             results = []
                             for i in range(22): # search am_ac
                                 for j in ["name", "3 letter code", "letter"]:
-                                    found.append(i) if search.lower() == am_ac[i][j].lower() else None
-                                found.append(i) if search.upper() in am_ac[i]["codons"] else None
-                            results += ["Amino Acid", f"Name : {am_ac[found[len(found) - 1]]['name']}", f"3 Letter Code : {am_ac[found[len(found) - 1]]['3 letter code']}", f"Letter : {am_ac[found[len(found) - 1]]['letter']}", f"Codons : {', '.join(am_ac[found[len(found) - 1]]['codons'])}", f"Polarity : {am_ac[found[len(found) - 1]]['polarity']}"] if type(found) == list else None                        
+                                    if search.lower() == am_ac[i][j].lower(): found = i 
+                                if search.upper() in am_ac[i]["codons"]: found = i
+                                if type(found) == int : results += ["Amino Acid", f"Name : {am_ac[found]['name']}", f"3 Letter Code : {am_ac[found]['3 letter code']}", f"Letter : {am_ac[found]['letter']}", f"Codons : {', '.join(am_ac[found]['codons'])}", f"Polarity : {am_ac[found]['polarity']}", ""]                      
+                                found = None
+                            for i in range(15): #search aldoses
+                                for j in ["name", "type"]:
+                                    if search.lower() == aldoses[i][j].lower(): found = i
+                                if type(found) == int : results += ["Aldose", f"Name : {aldoses[found]['name']}", f"Type : {aldoses[found]['type']}", f"Memo : {aldoses[found]['memo']}", ""]
+                                found = None
                         elif x == 2: # search chemistry
                             results = None
                         if type(results) == list: # show results
