@@ -34,32 +34,36 @@ am_ac = [
     {"name" : "Valine",         "3 letter code" : "Val",    "letter" : "V",     "codons" : ["GUU", "GUC", "GUA", "GUG"],                    "polarity" : "Nonpolar"},
 ]
 aldoses = [
-    {"name" : "Glyceraldehyde",  "type" : "Triose",    "memo" : "None",      "structure" : "CH₂OH\n|\n"},
-    {"name" : "Erythrose",       "type" : "Tetrose",   "memo" : "None",      "structure" : ""},
-    {"name" : "Threose",         "type" : "Tetrose",   "memo" : "None",      "structure" : ""},
-    {"name" : "Ribose",          "type" : "Pentose",   "memo" : "None",      "structure" : ""},
-    {"name" : "Arabinose",       "type" : "Pentose",   "memo" : "None",      "structure" : ""},
-    {"name" : "Xylose",          "type" : "Pentose",   "memo" : "None",      "structure" : ""},
-    {"name" : "Lyxose",          "type" : "Pentose",   "memo" : "None",      "structure" : ""},
-    {"name" : "Allose",          "type" : "Hexose",    "memo" : "Punch",     "structure" : ""},
-    {"name" : "Altrose",         "type" : "Hexose",    "memo" : "There !",   "structure" : ""},
-    {"name" : "Glucose",         "type" : "Hexose",    "memo" : "F*ck you",  "structure" : ""},
-    {"name" : "Mannose",         "type" : "Hexose",    "memo" : "Gun",       "structure" : ""},
-    {"name" : "Gulose",          "type" : "Hexose",    "memo" : "None",      "structure" : ""},
-    {"name" : "Idose",           "type" : "Hexose",    "memo" : "None",      "structure" : ""},
-    {"name" : "Galactose",       "type" : "Hexose",    "memo" : "Freaky",    "structure" : ""},
-    {"name" : "Talose",          "type" : "Hexose",    "memo" : "Tea time",  "structure" : ""}
+    {"name" : "Glyceraldehyde",    "type" : "Triose",     "structure" : "\n    CHO\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Erythrose",         "type" : "Tetrose",    "structure" : "\n    CHO\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Threose",           "type" : "Tetrose",    "structure" : "\n    CHO\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Ribose",            "type" : "Pentose",    "structure" : "\n    CHO\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Arabinose",         "type" : "Pentose",    "structure" : "\n    CHO\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n  H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Xylose",            "type" : "Pentose",    "structure" : "\n    CHO\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Lyxose",            "type" : "Pentose",    "structure" : "\n    CHO\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Allose",            "type" : "Hexose",     "structure" : "\n    CHO\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Altrose",           "type" : "Hexose",     "structure" : "\n    CHO\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Glucose",           "type" : "Hexose",     "structure" : "\n    CHO\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Mannose",           "type" : "Hexose",     "structure" : "\n    CHO\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Gulose",            "type" : "Hexose",     "structure" : "\n    CHO\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Idose",             "type" : "Hexose",     "structure" : "\n    CHO\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Galactose",         "type" : "Hexose",     "structure" : "\n    CHO\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Talose",            "type" : "Hexose",     "structure" : "\n    CHO\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"}
 ]
 cetoses = [ 
-    {"name" : "Dihydroxyacetone",  "type" : "Triose",     "memo" : "None",    "structure" : ""},
-    {"name" : "Erythrulose",       "type" : "Tetrose",    "memo" : "None",    "structure" : ""},
-    {"name" : "Ribulose",          "type" : "Pentose",    "memo" : "00",      "structure" : ""},
-    {"name" : "Xylulose",          "type" : "Pentose",    "memo" : "10",      "structure" : ""},
-    {"name" : "Psicose",           "type" : "Hexose",     "memo" : "000",     "structure" : ""},
-    {"name" : "Fructose",          "type" : "Hexose",     "memo" : "010",     "structure" : ""},
-    {"name" : "Sorbose",           "type" : "Hexose",     "memo" : "100",     "structure" : ""},
-    {"name" : "Tagatose",          "type" : "Hexose",     "memo" : "110",     "structure" : ""} 
+    {"name" : "Dihydroxyacetone",  "type" : "Triose",     "structure" : "\n    CH₂OH\n    |\n    |==O\n    |\n    CH₂OH\n"},
+    {"name" : "Erythrulose",       "type" : "Tetrose",    "structure" : "\n    CH₂OH\n    |\n    |==O\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Ribulose",          "type" : "Pentose",    "structure" : "\n    CH₂OH\n    |\n    |==O\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Xylulose",          "type" : "Pentose",    "structure" : "\n    CH₂OH\n    |\n    |==O\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Psicose",           "type" : "Hexose",     "structure" : "\n    CH₂OH\n    |\n    |==O\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Fructose",          "type" : "Hexose",     "structure" : "\n    CH₂OH\n    |\n    |==O\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Sorbose",           "type" : "Hexose",     "structure" : "\n    CH₂OH\n    |\n    |==O\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n H——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"},
+    {"name" : "Tagatose",          "type" : "Hexose",     "structure" : "\n    CH₂OH\n    |\n    |==O\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\nH——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"} 
 ]
+
+# \033[38:5:3m   yello
+# \033[0m        end
+
 # ====== FUNCTIONS =======================================================================================================================================================
 
 def clear():
@@ -131,19 +135,19 @@ def choice(text, color, box):
                             for i in range(15): #search aldoses
                                 for j in ["name", "type"]:
                                     if search.lower() == aldoses[i][j].lower(): found = i
-                                if type(found) == int : results += ["Aldose", f"Name : {aldoses[found]['name']}", f"Type : {aldoses[found]['type']}", f"Memo : {aldoses[found]['memo']}", ""]
+                                if type(found) == int : results += ["Aldose", f"Name : {aldoses[found]['name']}", f"Type : {aldoses[found]['type']}", "Structure :", f" {aldoses[found]['structure']}"]
                                 found = None
                             for i in range(8): #search cetoses
                                 for j in ["name", "type"]:
                                     if search.lower() == cetoses[i][j].lower(): found = i
-                                if type(found) == int : results += ["Cetose", f"Name : {cetoses[found]['name']}", f"Type : {cetoses[found]['type']}", f"Memo : {cetoses[found]['memo']}", ""]
+                                if type(found) == int : results += ["Cetose", f"Name : {cetoses[found]['name']}", f"Type : {cetoses[found]['type']}", "Structure :", f" {cetoses[found]['structure']}"]
                                 found = None
                         elif x == 2: # search chemistry
                             results = None
                         if type(results) == list: # show results
                             title("Search Results", color)
                             for i in results:
-                                write(i, "", "", False, True, True)
+                                write(i, "", "", False, True, False if i[slice(0, 1)] == " " else True)
                             spc()
                             if choice(["Back"], color, []) == 1: # back
                                 return 0
@@ -186,7 +190,7 @@ def quiz(x):
 def quiz_biology(x):
     if x == 0:
         title("Biology - Quiz", "")
-        quiz_biology(choice(["Amino Acids", "Back"], "", []))
+        quiz_biology(choice(["Amino Acids", "Glucids", "Back"], "", []))
     elif x == 1:
         title("Amino Acids - Quiz", "")
         list = ["Name", "3 letter code", "Letter", "Codons", "Structure"]
@@ -219,9 +223,9 @@ def quiz_biology(x):
         if y == 1:
             title("Amino Aciids - Quiz", "")
             write("Associate the correct ", "", "", False, False, True)
-            write(answer, "cyan", "", True, False, True)
+            write(answer, "bright cyan", "", True, False, True)
             write(" to the given ", "", "", False, False, True)
-            write(question, "purple", "", True, False, True)
+            write(question, "bright purple", "", True, False, True)
             write(".", "", "", False, True, True)
             spc()
             list = am_ac
@@ -263,7 +267,8 @@ def quiz_biology(x):
             spc()
             quiz_biology(1) if choice(["Again", "Back"], "", []) == 1 else quiz_biology(0)
         elif y == 2: quiz_biology(0)
-    elif x == 2: quiz(0)
+    elif x == 2: pass
+    elif x == 3: quiz(0)
 
 def emotional_support(x):
     if x == 0:

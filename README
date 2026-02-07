@@ -1,3 +1,12 @@
 Commande pour compiler en exe
 
 python -m PyInstaller 'The Terminal.py' --onefile
+
+
+   CHO
+   |
+H——+——OH
+   |
+H——+——OH
+   |
+   CH₂OH
