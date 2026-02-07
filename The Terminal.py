@@ -136,7 +136,7 @@ def quiz_biology(x):
         quiz_biology(choice(["Amino Acids", "Back"], "", []))
     elif x == 1:
         title("Amino Acids", "")
-        list = ["Name", "3 Letter Code", "Letter", "Codons"]
+        list = ["Name", "3 Letter Code", "Letter", "Codons", "Structure"]
         write("Choose question :", "", "", False, True, True)
         spc()
         question = choice(list, "", []) - 1
@@ -146,8 +146,9 @@ def quiz_biology(x):
             write(f"\033[30D({question + 1}) {list[question]}".ljust(31), "green", "", True, False, False)
             time.sleep(0.15)
         list.remove(list[question])
+        list.remove("Structure")
         list.append("Polarity")
-        print(f"\033[{len(list) - question}B")
+        print(f"\033[{len(list) - question + 1}B")
         write("Choose answer :", "", "", False, True, True)
         spc()
         answer = choice(list, "", []) - 1
