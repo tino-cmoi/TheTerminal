@@ -8,14 +8,30 @@ colors = {
 
 # ====== DATA ============================================================================================================================================================
 
-am_ac = {
-    "name" : ["Alanine", "Arginine", "Asparagine", "Aspartic Acid", "Cysteine", "Glutamic Acid", "Glutamine", "Glycine", "Histidine", "Isoleucine", "Leucine", "Lysine", "Methionine", "Phenylalanine", "Proline", "Pyrrolysine", "Selenocysteine", "Serine", "Threonine", "Tryptophan", "Tyrosine", "Valine"],
-    "3 letter code" : ["Ala", "Arg", "Asn", "Asp", "Cys", "Glu", "Gln", "Gly", "His", "Ile", "Leu", "Lys", "Met", "Phe", "Pro", "Pyl", "Sec", "Ser", "Thr", "Trp", "Tyr", "Val"],
-    "letter" : ["A", "R", "N", "D", "C", "E", "Q", "G", "H", "I", "L", "K", "M", "F", "P", "O", "U", "S", "T", "W", "Y", "V"],
-    "codons" : [["GCU", "GCC", "GCA", "GCG"], ["CGU", "CGC", "CGA", "CGG", "AGA", "AGG"], ["AAU", "AAC"], ["GAU", "GAC"], ["UGU", "UGC"], ["GAA", "GAG"], ["CAA", "CAG"], ["GGU", "GGC", "GGA", "GGG"], ["CAU", "CAC"], ["AUU", "AUC", "AUA"], ["UUA", "UUG", "CUU", "CUC", "CUA", "CUG"], ["AAA", "AAG"], ["AUG"], ["UUU", "UUC"], ["CCU", "CCC", "CCA", "CCG"], ["UAG"], ["UGA"], ["UCU", "UCC", "UCA", "UCG", "AGU", "AGC"], ["ACU", "ACC", "ACA", "ACG"], ["UGG"], ["UAU", "UAC"], ["GUU", "GUC", "GUA", "GUG"]],
-    "polarity" : ["Nonpolar", "Basic", "Neutral", "Acidic", "Neutral", "Acidic", "Neutral", "Nonpolar", "Basic", "Nonpolar", "Nonpolar", "Basic", "Nonpolar", "Nonpolar", "Nonpolar", "Special", "Special", "Neutral", "Neutral", "Nonpolar", "Neutral", "Nonpolar"],
-    "structure" : []
-}
+am_ac = [
+    {"name" : "Alanine",        "3 letter code" : "Ala",    "letter" : "A",     "codons" : ["GCU", "GCC", "GCA", "GCG"],                    "polarity" : "Nonpolar"},
+    {"name" : "Arginine",       "3 letter code" : "Arg",    "letter" : "R",     "codons" : ["CGU", "CGC", "CGA", "CGG", "AGA", "AGG"],      "polarity" : "Basic"},
+    {"name" : "Asparagine",     "3 letter code" : "Asn",    "letter" : "N",     "codons" : ["AAU", "AAC"],                                  "polarity" : "Neutral"},
+    {"name" : "Aspartic Acid",  "3 letter code" : "Asp",    "letter" : "D",     "codons" : ["GAU", "GAC"],                                  "polarity" : "Acidic"},
+    {"name" : "Cysteine",       "3 letter code" : "Cys",    "letter" : "C",     "codons" : ["UGU", "UGC"],                                  "polarity" : "Neutral"},
+    {"name" : "Glutamic Acid",  "3 letter code" : "Glu",    "letter" : "E",     "codons" : ["GAA", "GAG"],                                  "polarity" : "Acidic"},
+    {"name" : "Glutamine",      "3 letter code" : "Gln",    "letter" : "Q",     "codons" : ["CAA", "CAG"],                                  "polarity" : "Neutral"},
+    {"name" : "Glycine",        "3 letter code" : "Gly",    "letter" : "G",     "codons" : ["GGU", "GGC", "GGA", "GGG"],                    "polarity" : "Nonpolar"},
+    {"name" : "Histidine",      "3 letter code" : "His",    "letter" : "H",     "codons" : ["CAU", "CAC"],                                  "polarity" : "Basic"},
+    {"name" : "Isoleucine",     "3 letter code" : "Ile",    "letter" : "I",     "codons" : ["AUU", "AUC", "AUA"],                           "polarity" : "Nonpolar"},
+    {"name" : "Leucine",        "3 letter code" : "Leu",    "letter" : "L",     "codons" : ["UUA", "UUG", "CUU", "CUC", "CUA", "CUG"],      "polarity" : "Nonpolar"},
+    {"name" : "Lysine",         "3 letter code" : "Lys",    "letter" : "K",     "codons" : ["AAA", "AAG"],                                  "polarity" : "Basic"},
+    {"name" : "Methionine",     "3 letter code" : "Met",    "letter" : "M",     "codons" : ["AUG"],                                         "polarity" : "Nonpolar"},
+    {"name" : "Phenylalanine",  "3 letter code" : "Phe",    "letter" : "F",     "codons" : ["UUU", "UUC"],                                  "polarity" : "Nonpolar"},
+    {"name" : "Proline",        "3 letter code" : "Pro",    "letter" : "P",     "codons" : ["CCU", "CCC", "CCA", "CCG"],                    "polarity" : "Nonpolar"},
+    {"name" : "Pyrrolysine",    "3 letter code" : "Pyl",    "letter" : "O",     "codons" : ["UAG"],                                         "polarity" : "Special"},
+    {"name" : "Selenocysteine", "3 letter code" : "Sec",    "letter" : "U",     "codons" : ["UGA"],                                         "polarity" : "Special"},
+    {"name" : "Serine",         "3 letter code" : "Ser",    "letter" : "S",     "codons" : ["UCU", "UCC", "UCA", "UCG", "AGU", "AGC"],      "polarity" : "Neutral"},
+    {"name" : "Threonine",      "3 letter code" : "Thr",    "letter" : "T",     "codons" : ["ACU", "ACC", "ACA", "ACG"],                    "polarity" : "Neutral"},
+    {"name" : "Tryptophan",     "3 letter code" : "Trp",    "letter" : "W",     "codons" : ["UGG"],                                         "polarity" : "Nonpolar"},
+    {"name" : "Tyrosine",       "3 letter code" : "Tyr",    "letter" : "Y",     "codons" : ["UAU", "UAC"],                                  "polarity" : "Neutral"},
+    {"name" : "Valine",         "3 letter code" : "Val",    "letter" : "V",     "codons" : ["GUU", "GUC", "GUA", "GUG"],                    "polarity" : "Nonpolar"},
+]
 
 # ====== FUNCTIONS =======================================================================================================================================================
 
@@ -72,19 +88,18 @@ def choice(text, color, box):
                             key = key.upper()
                         search += key if key != "space" else " "
                         write(f"{key}" if key != "space" else " ", "black", color if color != "" else "white", True, False, False)
-                    elif key == "backspace" and keyboard.is_pressed(key) and len(search) > 0: # deleting search
+                    elif key == "backspace" and keyboard.is_pressed(key) and len(search) > 0: # deleting char
                         search = search[:-1]
                         write("\033[1D \033[1D", "black", color if color != "" else "white", True, False, False)
                     elif key == "enter" and keyboard.is_pressed(key): #searching
                         if x == 1: # search biology
+                            found = []
                             results = []
-                            for i in ["name", "3 letter code", "letter"]: # search am_ac
-                                for j in range(len(am_ac[i])):
-                                    results.append(j) if search.lower() == am_ac[i][j].lower() else None
-                            for i in am_ac["codons"]:
-                                for j in i:
-                                    results.append(am_ac["codons"].index(i)) if search.upper() == j else None
-                            results = ["Amino Acid", f"Name : {am_ac['name'][results[0]]}", f"3 Letter Code : {am_ac['3 letter code'][results[0]]}", f"Letter : {am_ac['letter'][results[0]]}", f"Codons : {', '.join(am_ac['codons'][results[0]])}", f"Polarity : {am_ac['polarity'][results[0]]}"] if results != [] else None
+                            for i in range(22): # search am_ac
+                                for j in ["name", "3 letter code", "letter"]:
+                                    found.append(i) if search.lower() == am_ac[i][j].lower() else None
+                                found.append(i) if search.upper() in am_ac[i]["codons"] else None
+                            results += ["Amino Acid", f"Name : {am_ac[found[len(found) - 1]]['name']}", f"3 Letter Code : {am_ac[found[len(found) - 1]]['3 letter code']}", f"Letter : {am_ac[found[len(found) - 1]]['letter']}", f"Codons : {', '.join(am_ac[found[len(found) - 1]]['codons'])}", f"Polarity : {am_ac[found[len(found) - 1]]['polarity']}"] if type(found) == list else None                        
                         elif x == 2: # search chemistry
                             results = None
                         if type(results) == list: # show results
@@ -136,7 +151,7 @@ def quiz_biology(x):
         quiz_biology(choice(["Amino Acids", "Back"], "", []))
     elif x == 1:
         title("Amino Acids - Quiz", "")
-        list = ["Name", "3 Letter Code", "Letter", "Codons", "Structure"]
+        list = ["Name", "3 letter code", "Letter", "Codons", "Structure"]
         write("Choose question :", "", "", False, True, True)
         spc()
         question = choice(list, "", []) - 1
@@ -148,8 +163,8 @@ def quiz_biology(x):
         list.remove("Structure")
         list.append("Polarity")
         print(f"\033[{len(list) - question}B")
-        question = list[question]
-        list.remove(question)
+        question = list[question].lower()
+        list.remove(question.capitalize())
         write("Choose answer :", "", "", False, True, True)
         spc()
         answer = choice(list, "", []) - 1
@@ -159,17 +174,54 @@ def quiz_biology(x):
             write(f"\033[30D({answer + 1}) {list[answer]}".ljust(31), "green", "", True, False, False)
             time.sleep(0.15)
         print(f"\033[{len(list) - answer}B")
-        answer = list[answer]
+        answer = list[answer].lower()
         write("Ready ?", "", "", False, True, True)
         spc()
         y = choice(["Start quiz", "Back"], "", [])
         if y == 1:
-            title("Amino Aciids - Quiz")
-            write(f"Associate the {answer} to the given {question}.", "", "", False, True, True)
+            title("Amino Aciids - Quiz", "")
+            write("Associate the correct ", "", "", False, False, True)
+            write(answer, "cyan", "", True, False, True)
+            write(" to the given ", "", "", False, False, True)
+            write(question, "purple", "", True, False, True)
+            write(".", "", "", False, True, True)
             spc()
+            list = am_ac
+            random.shuffle(list)
+            mistakes = 0
             for i in range(22):
-                write("")
-
+                write(f"({i + 1}) {list[i][question]} -> ", "" , "", False, False, True)
+                u_answer = ""
+                while True:
+                    key = keyboard.read_key()
+                    if ((key.isalpha() and len(key) == 1) or key.isdecimal() or key == "space") and keyboard.is_pressed(key) and len(u_answer) < 15: # writing answer
+                        if keyboard.is_pressed("shift") or keyboard.is_pressed("maj"):
+                            key = key.upper()
+                        u_answer += key if key != "space" else " "
+                        write(f"{key}" if key != "space" else " ", "", "", True, False, False)
+                    elif key == "backspace" and keyboard.is_pressed(key) and len(u_answer) > 0: # deleting char
+                        u_answer = u_answer[:-1]
+                        write("\033[1D \033[1D", "", "", True, False, False)
+                    elif key == "enter" and keyboard.is_pressed(key): # submitting answer
+                        if u_answer == list[i][answer]:
+                            c = "green"
+                        else:
+                            c = "red"
+                            mistakes += 1
+                        for i in range(3): # flickering
+                                write(f"\033[{len(u_answer)}D{u_answer}", "black", "", True, False, False)
+                                time.sleep(0.15)
+                                write(f"\033[{len(u_answer)}D{u_answer}", c, "", True, False, False)
+                                time.sleep(0.15)
+                        spc()
+                        break
+            spc()
+            comment = "Did you even try ??!"
+            if mistakes == 0: comment = "Perfect score !!"
+            elif mistakes <= 5: comment = "Well done !"
+            elif mistakes <= 10: comment = "Good."
+            elif mistakes <= 15: comment = "Meh."
+            write(f"{comment} You did {mistakes} mistakes.")
         elif y == 2: quiz_biology(0)
     elif x == 2: quiz(0)
 
