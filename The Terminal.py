@@ -50,7 +50,16 @@ aldoses = [
     {"name" : "Galactose",       "type" : "Hexose",    "memo" : "Freaky",    "structure" : ""},
     {"name" : "Talose",          "type" : "Hexose",    "memo" : "Tea time",  "structure" : ""}
 ]
-
+cetoses = [ 
+    {"name" : "Dihydroxyacetone",  "type" : "Triose",     "memo" : "None",    "structure" : ""},
+    {"name" : "Erythrulose",       "type" : "Tetrose",    "memo" : "None",    "structure" : ""},
+    {"name" : "Ribulose",          "type" : "Pentose",    "memo" : "00",      "structure" : ""},
+    {"name" : "Xylulose",          "type" : "Pentose",    "memo" : "10",      "structure" : ""},
+    {"name" : "Psicose",           "type" : "Hexose",     "memo" : "000",     "structure" : ""},
+    {"name" : "Fructose",          "type" : "Hexose",     "memo" : "010",     "structure" : ""},
+    {"name" : "Sorbose",           "type" : "Hexose",     "memo" : "100",     "structure" : ""},
+    {"name" : "Tagatose",          "type" : "Hexose",     "memo" : "110",     "structure" : ""} 
+]
 # ====== FUNCTIONS =======================================================================================================================================================
 
 def clear():
@@ -123,6 +132,11 @@ def choice(text, color, box):
                                 for j in ["name", "type"]:
                                     if search.lower() == aldoses[i][j].lower(): found = i
                                 if type(found) == int : results += ["Aldose", f"Name : {aldoses[found]['name']}", f"Type : {aldoses[found]['type']}", f"Memo : {aldoses[found]['memo']}", ""]
+                                found = None
+                            for i in range(8): #search cetoses
+                                for j in ["name", "type"]:
+                                    if search.lower() == cetoses[i][j].lower(): found = i
+                                if type(found) == int : results += ["Cetose", f"Name : {cetoses[found]['name']}", f"Type : {cetoses[found]['type']}", f"Memo : {cetoses[found]['memo']}", ""]
                                 found = None
                         elif x == 2: # search chemistry
                             results = None
