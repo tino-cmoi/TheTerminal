@@ -262,7 +262,7 @@ def quiz_biology(x):
             elif mistakes <= 5: comment = "Well done !"
             elif mistakes <= 10: comment = "Good."
             elif mistakes <= 15: comment = "Meh."
-            write(f"{comment} You did {mistakes} mistake" + "." if mistakes == 1 else "s.", "", "", False, True, True)
+            write(f"{comment} You did {mistakes} mistake." if mistakes == 1 else f"{comment} You did {mistakes} mistakes.", "", "", False, True, True)
             spc()
             quiz_biology(1) if choice(["Again", "Back"], "", []) == 1 else quiz_biology(0)
         elif y == 2: quiz_biology(0)
