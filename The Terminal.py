@@ -132,10 +132,10 @@ def quiz(x):
     elif x == 3: main_menu(0)
 def quiz_biology(x):
     if x == 0:
-        title("Biology Quiz", "")
+        title("Biology - Quiz", "")
         quiz_biology(choice(["Amino Acids", "Back"], "", []))
     elif x == 1:
-        title("Amino Acids", "")
+        title("Amino Acids - Quiz", "")
         list = ["Name", "3 Letter Code", "Letter", "Codons", "Structure"]
         write("Choose question :", "", "", False, True, True)
         spc()
@@ -145,10 +145,11 @@ def quiz_biology(x):
             time.sleep(0.15)
             write(f"\033[30D({question + 1}) {list[question]}".ljust(31), "green", "", True, False, False)
             time.sleep(0.15)
-        list.remove(list[question])
         list.remove("Structure")
         list.append("Polarity")
-        print(f"\033[{len(list) - question + 1}B")
+        print(f"\033[{len(list) - question}B")
+        question = list[question]
+        list.remove(question)
         write("Choose answer :", "", "", False, True, True)
         spc()
         answer = choice(list, "", []) - 1
@@ -158,10 +159,17 @@ def quiz_biology(x):
             write(f"\033[30D({answer + 1}) {list[answer]}".ljust(31), "green", "", True, False, False)
             time.sleep(0.15)
         print(f"\033[{len(list) - answer}B")
+        answer = list[answer]
         write("Ready ?", "", "", False, True, True)
         spc()
         y = choice(["Start quiz", "Back"], "", [])
-        if y == 1: pass
+        if y == 1:
+            title("Amino Aciids - Quiz")
+            write(f"Associate the {answer} to the given {question}.", "", "", False, True, True)
+            spc()
+            for i in range(22):
+                write("")
+
         elif y == 2: quiz_biology(0)
     elif x == 2: quiz(0)
 
