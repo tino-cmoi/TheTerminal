@@ -143,8 +143,8 @@ def choice(text, color, box):
                                 if type(found) == int : results += ["Cetose", f"Name : {cetoses[found]['name']}", f"Type : {cetoses[found]['type']}", "Structure :", f" {cetoses[found]['structure']}"]
                                 found = None
                         elif x == 2: # search chemistry
-                            results = None
-                        if type(results) == list: # show results
+                            results = []
+                        if results != []: # show results
                             title("Search Results", color)
                             for i in results:
                                 write(i, "", "", False, True, False if i[slice(0, 1)] == " " else True)
@@ -168,11 +168,10 @@ def choice(text, color, box):
 def main_menu(x):
     if x == 0:
         title("The Terminal", "")
-        main_menu(choice(["Database", "Quiz", "Emotional Support", "Exit"], "", []))
+        main_menu(choice(["Database", "Quiz", "Exit"], "", []))
     elif x == 1: database(0)
     elif x == 2: quiz(0)
-    elif x == 3: emotional_support(0)
-    elif x == 4: exit()
+    elif x == 3: exit()
 
 def database(x):
     if x == 0:
@@ -185,7 +184,7 @@ def quiz(x):
         title("Quiz", "")
         quiz(choice(["Biology", "Chemistry", "Back"], "", []))
     elif x == 1: quiz_biology(0)
-    elif x == 2: pass
+    elif x == 2: quiz(0)
     elif x == 3: main_menu(0)
 def quiz_biology(x):
     if x == 0:
@@ -232,7 +231,7 @@ def quiz_biology(x):
             random.shuffle(list)
             mistakes = 0
             for i in range(22):
-                write(f"({i + 1}) {list[i][question]} -> ", "" , "", False, True if question == "structure" else False, False if question == "structure" else True)
+                write(f"({i + 1}) {list[i][question]} >> ", "" , "", False, True if question == "structure" else False, False if question == "structure" else True)
                 u_answer = ""
                 while True:
                     key = keyboard.read_key()
@@ -251,9 +250,9 @@ def quiz_biology(x):
                             c = "red"
                             mistakes += 1
                         for j in range(3): # flickering
-                                write(f"\033[{len(u_answer)}D{list[i][answer] if c == "green" else u_answer}", "black", "", True, False, False)
+                                write(f"\033[{len(u_answer) + 3}D{">> " + list[i][answer] if c == "green" else ">> " + u_answer}", "black", "", True, False, False)
                                 time.sleep(0.15)
-                                write(f"\033[{len(u_answer)}D{list[i][answer] if c == "green" else u_answer}", c, "", True, False, False)
+                                write(f"\033[{len(u_answer) + 3}D{">> " + list[i][answer] if c == "green" else ">> " + u_answer}", c, "", True, False, False)
                                 time.sleep(0.15)
                         spc()
                         break
@@ -267,16 +266,70 @@ def quiz_biology(x):
             spc()
             quiz_biology(1) if choice(["Again", "Back"], "", []) == 1 else quiz_biology(0)
         elif y == 2: quiz_biology(0)
-    elif x == 2: pass
+    elif x == 2:
+        title("Glucids - Quiz", "")
+        write("Which family of glucids would you like to study ?", "", "", False, True, True)
+        spc()
+        theme = choice(["Aldoses", "Cetoses", "Both"], "", [])
+        for i in range(3): # flickering green
+            write(f"{'\033[30D'.ljust(31)}\033[22D", "black", "", True, False, False)
+            time.sleep(0.15)
+            write(f"\033[30D({theme}) {"Aldoses" if theme == 1 else "Cetoses" if theme == 2 else "Both"}", "green", "", True, False, False)
+            time.sleep(0.15)
+        print(f"\033[{4 - theme}B")
+        write("Ready ?", "", "", False, True, True)
+        spc()
+        y = choice(["Start quiz", "Back"], "", [])
+        if y == 1:
+            title("Glucids - Quiz", "")
+            write("Put a ", "", "", False, False, True)
+            write("name", "bright cyan", "", True, False, True)
+            write(" to the given ", "", "", False, False, True)
+            write("structure", "bright purple", "", True, False, True)
+            write(".", "", "", False, True, True)
+            spc()
+            list = [] # preparing q/a
+            if theme in [1, 3]: list += aldoses
+            if theme in [2, 3]: list += cetoses
+            random.shuffle(list)
+            mistakes = 0
+            for i in list:
+                write(f"{i["structure"]}\n>> ", "", "", False, False, False)
+                u_answer = ""
+                while True:
+                    key = keyboard.read_key()
+                    if ((key.isalpha() and len(key) == 1) or key.isdecimal() or key == "space") and keyboard.is_pressed(key) and len(u_answer) < 15: # writing answer
+                        if keyboard.is_pressed("shift") or keyboard.is_pressed("maj"):
+                            key = key.upper()
+                        u_answer += key if key != "space" else " "
+                        write(f"{key}" if key != "space" else " ", "", "", True, False, False)
+                    elif key == "backspace" and keyboard.is_pressed(key) and len(u_answer) > 0: # deleting char
+                        u_answer = u_answer[:-1]
+                        write("\033[1D \033[1D", "", "", True, False, False)
+                    elif key == "enter" and keyboard.is_pressed(key): # submitting answer
+                        if u_answer.lower() == i["name"].lower():
+                            c = "green"
+                        else:
+                            c = "red"
+                            mistakes += 1
+                        for j in range(3): # flickering
+                                write(f"\033[{len(u_answer) + 3}D{">> " + i["name"] if c == "green" else ">> " + u_answer}", "black", "", True, False, False)
+                                time.sleep(0.15)
+                                write(f"\033[{len(u_answer) + 3}D{">> " + i["name"] if c == "green" else ">> " + u_answer}", c, "", True, False, False)
+                                time.sleep(0.15)
+                        spc()
+                        break
+            spc()
+            comment = "Did you even try ??!"
+            if mistakes == 0: comment = "Perfect score !!"
+            elif mistakes <= 1: comment = "Well done !"
+            elif mistakes <= 3: comment = "Good."
+            elif mistakes <= 6: comment = "Meh."
+            write(f"{comment} You did {mistakes} mistake." if mistakes == 1 else f"{comment} You did {mistakes} mistakes.", "", "", False, True, True)
+            spc()
+            quiz_biology(2) if choice(["Again", "Back"], "", []) == 1 else quiz_biology(0)
+        elif y == 2: quiz_biology(0)
     elif x == 3: quiz(0)
-
-def emotional_support(x):
-    if x == 0:
-        title("Emotional Support", "")
-        emotional_support(choice(["Nothing here yet...", "Back"], "", []))
-    elif x == 1:
-        write("yo", "", "", False, True, True)
-    elif x == 2: main_menu(0)
 
 # ====== START ===========================================================================================================================================================
 
