@@ -61,8 +61,28 @@ cetoses = [
     {"name" : "Tagatose",          "type" : "Hexose",     "structure" : "\n    CH₂OH\n    |\n    |==O\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\n\033[38:5:3mHO\033[0m——+——H\n    |\nH——+——\033[38:5:3mOH\033[0m\n    |\n    CH₂OH\n"} 
 ]
 
-# \033[38:5:3m   yello
-# \033[0m        end
+p_table = [
+    {"name" : "Hydrogen",    "atom" : "H",     "ion" : "H⁺",       "mass": 1.0078,    "Valence" : [1]},
+    {"name" : "Helium",      "atom" : "He",    "ion" : "He²⁺",     "mass": 4.0026,    "Valence" : [2]},
+    {"name" : "Lithium",     "atom" : "Li",    "ion" : "Li⁺",      "mass": 6.9410,    "Valence" : [1]},
+    {"name" : "Berylium",    "atom" : "Be",    "ion" : "Be²⁺",     "mass": 9.0122,    "Valence" : [2]},
+    {"name" : "Bore",        "atom" : "B",     "ion" : "B",        "mass": 10.811,    "Valence" : [3]},
+    {"name" : "Carbon",      "atom" : "C",     "ion" : "C",        "mass": 12.011,    "Valence" : [4]},
+    {"name" : "Nitrogen",    "atom" : "N",     "ion" : "N³⁻",      "mass": 14.007,    "Valence" : [5]},
+    {"name" : "Oxygen",      "atom" : "O",     "ion" : "O²⁻",      "mass": 15.999,    "Valence" : [6]},
+    {"name" : "Fluor",       "atom" : "F",     "ion" : "F⁻",       "mass": 18.998,    "Valence" : [7]},
+    {"name" : "Neon",        "atom" : "Ne",    "ion" : "Ne",       "mass": 20.180,    "Valence" : [8]},
+    {"name" : "Sodium",      "atom" : "Na",    "ion" : "Na⁺",      "mass": 22.990,    "Valence" : [1]},
+    {"name" : "Magnesium",   "atom" : "Mg",    "ion" : "Mg²⁺",     "mass": 24.305,    "Valence" : [2]},
+    {"name" : "Aluminium",   "atom" : "Al",    "ion" : "Al³⁺",     "mass": 26.982,    "Valence" : [3]},
+    {"name" : "Silicium",    "atom" : "Si",    "ion" : "Si",       "mass": 28.086,    "Valence" : [4]},
+    {"name" : "Phophorus",   "atom" : "P",     "ion" : "P³⁻",      "mass": 30.974,    "Valence" : [5]},
+    {"name" : "Sulfur",      "atom" : "S",     "ion" : "S²⁻",      "mass": 32.065,    "Valence" : [6]},
+    {"name" : "Chlore",      "atom" : "Cl",    "ion" : "Cl⁻",      "mass": 35.453,    "Valence" : [7]},
+    {"name" : "Argon",       "atom" : "Ar",    "ion" : "Ar",       "mass": 39.948,    "Valence" : [8]},
+    {"name" : "Potassium",   "atom" : "K",     "ion" : "K⁺",       "mass": 39.098,    "Valence" : [1]},
+    {"name" : "Calcium",     "atom" : "Ca",    "ion" : "Ca²⁺",     "mass": 40.078,    "Valence" : [2]},
+]
 
 # ====== FUNCTIONS =======================================================================================================================================================
 
@@ -168,10 +188,11 @@ def choice(text, color, box):
 def main_menu(x):
     if x == 0:
         title("The Terminal", "")
-        main_menu(choice(["Database", "Quiz", "Exit"], "", []))
+        main_menu(choice(["Database", "Quiz", "Calculator", "Exit"], "", []))
     elif x == 1: database(0)
     elif x == 2: quiz(0)
-    elif x == 3: exit()
+    elif x == 3: calculator(0)
+    elif x == 4: exit()
 
 def database(x):
     if x == 0:
@@ -331,6 +352,49 @@ def quiz_biology(x):
         elif y == 2: quiz_biology(0)
     elif x == 3: quiz(0)
 
+def calculator(x):
+    if x == 0:
+        title("Calculator", "")
+        calculator(choice(["Calculate M", "Back"], "", []))
+    if x == 1: m_calc(0)
+    if x == 2: main_menu(0)
+def m_calc(x):
+    if x == 0:
+        title("calculate M", "")
+        write("Please enter the components in format Xa Yb etc...\n\n>> ", "", "", False, False, True)
+        search = ""
+        while True:
+            key = keyboard.read_key()
+            if ((key.isalpha() and len(key) == 1) or key.isdecimal() or key == "space") and keyboard.is_pressed(key): # writing comp
+                if keyboard.is_pressed("shift") or keyboard.is_pressed("maj"):
+                    key = key.upper()
+                search += key if key != "space" else " "
+                write(f"{key}" if key != "space" else " ", "black","", True, False, False)
+            elif key == "backspace" and keyboard.is_pressed(key) and len(search) > 0: # deleting char
+                search = search[:-1]
+                write("\033[1D \033[1D", "black", "", True, False, False)
+            elif key == "enter" and keyboard.is_pressed(key): # calculating
+                components = search.split()
+                result = 0
+                detail = []
+                for i in components:
+                    if len(i) > 1 and i[-2].isalpha(): # if element has 2 letters
+                        atom = i[-2:]
+                        n = i[:-2]
+                    else:
+                        atom = i[-1]
+                        n = i[:-1]
+                    for j in p_table:
+                        if j["atom"] == atom:
+                            result += j["mass"] * (int(n) if n != "" and n.isdecimal() else 1)
+                            detail.append(f"{n if n != '' else '1'} x {j['mass']}")
+                            break
+                write(f"\n\nM = {' + '.join(detail)}", "", "", False, True, True)
+                write(f"  = {result} g/mol", "", "", False, True, True)
+                spc()
+                y = choice(["Again", "Back"], "", [])
+                if y == 1: m_calc(0)
+                elif y == 2 : calculator(0)
 # ====== START ===========================================================================================================================================================
 
 cursor.hide()
